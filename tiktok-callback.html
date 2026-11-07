@@ -1,0 +1,15 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TikTok — Tank Audit Tools</title><link rel="stylesheet" href="style.css"></head><body><main>
+<header><img src="logo.png" alt="ТА"><div><div class="rub">Tank Audit Tools</div><h1>Вход TikTok · TikTok sign-in</h1></div></header>
+<section><p id="msg">Обработка… / Processing…</p>
+<p>Код авторизации / Authorization code:</p>
+<p><textarea id="code" rows="3" style="width:100%;font:15px monospace" readonly></textarea></p>
+<p><button onclick="navigator.clipboard.writeText(document.getElementById('code').value)">Скопировать / Copy</button></p>
+<p style="font-size:14px">Код одноразовый и действует несколько минут. Вставьте его в скрипт подключения на своём компьютере. / One-time code, valid for a few minutes; paste it into the connection script on your own computer.</p></section>
+<script>
+const q=new URLSearchParams(location.search);const c=q.get('code');const e=q.get('error');
+document.getElementById('msg').textContent=c?'Авторизация получена ✔ / Authorized ✔':(e?('Ошибка / Error: '+e+' '+(q.get('error_description')||'')):'Нет кода / No code');
+document.getElementById('code').value=c||'';
+</script>
+<p><a href="index.html">← Tank Audit Tools</a> · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms</a></p>
+</main></body></html>
